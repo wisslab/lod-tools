@@ -13,6 +13,7 @@ args = parser.parse_args()
 print("Endpoint: {}".format(args.endpoint))
 print("Graph: {}".format(args.graph))
 print("File: {}".format(args.file))
+print("Skipping lines: {}".format(args.skip))
 
 proceed = input("\nShould I proceed? (y/N)")
 if proceed != "y":
