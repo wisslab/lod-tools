@@ -7,6 +7,7 @@ parser = argparse.ArgumentParser(description="Load Turtle data via SPARQL")
 parser.add_argument("-e", "--endpoint", metavar="ENDPOINT", help="The UPDATE endpoint", required=True, dest="endpoint")
 parser.add_argument("-g", "--graph", metavar="GRAPH", default="default", help="The named GRAPH, default is default graph.", dest="graph")
 parser.add_argument("-f", "--file", metavar="FILE", help="The turtle file to load.", required=True, dest="file")
+parser.add_argument("-s", "--skip", metavar="SKIP", help="Number of lines to skip, default 0.", dest="skip", default=0, type=int)
 args = parser.parse_args()
 
 print("Endpoint: {}".format(args.endpoint))
@@ -96,7 +97,7 @@ with open(args.file, encoding="utf8") as f:
     #  print("Prefixes used:")
     #  print(prefixes)
 
-    skipped = 4594418
+    skipped = args.skip
     r.skipafter(skipped)
 
     resources = 0
